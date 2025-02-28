@@ -1,5 +1,5 @@
  ## 1. array 01 - moveZeroes
-### leetcode 283 easy
+### [Leetcode](https://leetcode.com/problems/move-zeroes/description/) 283 easy 
 对于这道题，是一道数组排序，需要把0元素全部放到数组末尾，将非0元素放到左边。  
 我的思路是：用 **双指针**  
 将 *left* 指针作为非0元素的位置，再用一个指针进行遍历，一旦有非0元素，就放到 *left* 指针的位置，然后将 *left* 指针加1。  
