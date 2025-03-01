@@ -21,6 +21,10 @@
 ### [Leetcode](https://leetcode.com/problems/search-a-2d-matrix-ii/)
 这道题是在有序矩阵中寻找目标值，我的思路是可以根据矩阵的特性来解决。从矩阵的右上角开始搜索： 如果当前元素等于 target，返回 true。 如果当前元素大于 target，则向左移动一列。 如果当前元素小于 target，则向下移动一行。这种有关有序矩阵的问题都可以从这里下手。
 
+## 5. array 05 - Kth Smallest Element in a Sorted Matrix ((Medium))
+### [Leetcode](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/description/)
+这道题是在一个有序矩阵中找第几小的问题，可以使用**最小堆**来解决，也就是优先队列，优先级最小的元素最先出队。在 Java 中，优先队列是通过 PriorityQueue 类实现的。默认情况下，PriorityQueue 是一个最小堆（min heap）。
+
 
 
 
