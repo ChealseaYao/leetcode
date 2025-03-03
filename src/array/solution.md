@@ -17,13 +17,30 @@
 这道题是二进制数组找最长连续1的问题。我的解题思路是遍历数组并在遍历的过程中用while循环找连续的1，用count记录每一次连续1的个数，并将这些个数放入集合中，最后再遍历集合，找到最大的数字。  
 有更为简单的方法，只要遍历一次数组即可，在遍历过程中比对，并且也不需要创建新的集合，提升空间复杂度。
 
-## 4. array 04 - Search a 2D Matrix II (Medium)
+## 4. array 04 - 240. Search a 2D Matrix II (Medium)
 ### [Leetcode](https://leetcode.com/problems/search-a-2d-matrix-ii/)
 这道题是在有序矩阵中寻找目标值，我的思路是可以根据矩阵的特性来解决。从矩阵的右上角开始搜索： 如果当前元素等于 target，返回 true。 如果当前元素大于 target，则向左移动一列。 如果当前元素小于 target，则向下移动一行。这种有关有序矩阵的问题都可以从这里下手。
 
-## 5. array 05 - Kth Smallest Element in a Sorted Matrix ((Medium))
+## 5. array 05 - 378. Kth Smallest Element in a Sorted Matrix ((Medium))
 ### [Leetcode](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/description/)
 这道题是在一个有序矩阵中找第几小的问题，可以使用**最小堆**来解决，也就是优先队列，优先级最小的元素最先出队。在 Java 中，优先队列是通过 PriorityQueue 类实现的。默认情况下，PriorityQueue 是一个最小堆（min heap）。
+
+## 6. array 06 - 645. Set Mismatch (Easy)
+### [Leetcode](https://leetcode.com/problems/set-mismatch/description/)
+这道题是说给了一个数组，里面的数字是从1-n，也就是意味着如果这个数组按照顺序排列的话，应该是由1到n递增的，也就是说每个数组都应该比它的索引大一位。  
+题目说有一个数组重复了两次，同时有一个数字消失，我们需要把重复两次和消失的数字放入一个新数组并返回。 
+解题思路就在于，每个数字应该比排序后的索引大一位，为了降低空间复杂度，我们先遍历数组，利用while循环找到 *nums[i]!=i+1* 的数字，也就是说明位置不对，然后将nums[i]放到nums[nums[i]-1]的位置上。这样遍历一遍后，就会得到排序好的数组。  
+然后我们需要再遍历一次数组，找到nums[i]!=i+1的数字，这个nums[i]就是重复的数字，而i+1就是小时的数字。
+
+## 7. array 07 - 704. Binary Search (Easy)
+### [Leetcode](https://leetcode.com/problems/binary-search/description/)
+这道题是典型的二分查找题目，一般来说，通常用于在有序数组中查找目标值。它的核心思想是通过不断缩小搜索范围来快速定位目标值。  
+
+中间值的计算非常重要，我们一般用 int mid = left + (right - left) / 2; 来计算，这个公式等同于int mid = (left + right) / 2; 但是更为安全，因为在某些编程语言中（如Java、C++），如果left和right都是很大的整数，直接使用(left + right)可能会导致整数溢出。使用left + (right - left) / 2可以避免这个问题。  
+
+然后解法一般有两种，取决于区间的选择，主要有左闭右开区间和左闭右闭区间。  
+左闭右开区间：有些二分法的实现使用left < right作为循环条件，此时right是不包含在搜索范围内的。在这种情况下，更新right时应该使用right = mid，而不是right = mid - 1。  
+左闭右闭区间：有些实现使用left <= right作为循环条件，此时right是包含在搜索范围内的。在这种情况下，更新right时应该使用right = mid - 1。
 
 
 
