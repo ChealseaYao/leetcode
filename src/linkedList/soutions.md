@@ -38,5 +38,12 @@
 只需要让 fast 指针直接 slow 指针有n个数即可，也就是 fast 指针比 slow 多走 n+1 步，这样当 fast 指针到达末尾的时候，slow 指针正好在要删除元素的前一位，因为如果要删除一个元素，必须要让指针停留在它的前一位才可。  
 然后开始循环判断，直到 fast 指针为 null ，删掉 slow 指针下一个，注意也要判断 slow.next!=null 才可，避免空指针异常。
 
+## 6. linkedList 06 - 142. Linked List Cycle (Med)
+### [Leetcode](https://leetcode.com/problems/linked-list-cycle-ii/description/)
+
+这道题要求判断一个链表中有没有环，如果有的话，找到环的入口。  
+首先链表有没有环的判断使用 **快慢指针** 来判断，让fast指针一次走两步，slow指针一次走一步，如果这两个指针最终相遇，就说明有环。  
+环的入口的判断，根据数学推理可知，**fast指针和slow指针相遇的点到环的入口的距离等于链表head到环入口的距离**，所以要求入口的话，只需要将fast指针从相遇点往后移，同时将head往后移，head和fast相遇的地方就是环的入口。
+
 
 
