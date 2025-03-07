@@ -31,3 +31,12 @@
 我们需要暂存三个节点的值，交换的第一个节点，第二个节点和第二个节点后面的节点，这里也是关键，这三个值都在未操作之前全部暂存。之后进行交换操作，每交换一次将current向后移两位。  
 最后返回的必须是头节点，也就是虚拟头节点后面的节点。
 
+## 5. linkedList 05 - 19. Remove Nth Node From End of List (Med)
+### [Leetcode](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)
+
+这道题要求删掉从列表末尾开始数的第n个元素，使用 **双指针--快慢指针** 来解题。  
+只需要让 fast 指针直接 slow 指针有n个数即可，也就是 fast 指针比 slow 多走 n+1 步，这样当 fast 指针到达末尾的时候，slow 指针正好在要删除元素的前一位，因为如果要删除一个元素，必须要让指针停留在它的前一位才可。  
+然后开始循环判断，直到 fast 指针为 null ，删掉 slow 指针下一个，注意也要判断 slow.next!=null 才可，避免空指针异常。
+
+
+
