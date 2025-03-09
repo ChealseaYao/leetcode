@@ -19,4 +19,25 @@
 首先开始遍历数组，创建一个hash map，用来存放已经遍历过的数及其索引，注意一定是数字值为key，索引为value，因为我们查找时使用的是值。
 然后每次遍历到一个数就查找一次map，如果存在，直接get到map的value和当前数字的index，组成新数组返回，如果没找到则将其存入map。
 
+## 4. hashTable 04 - 454 4Sum II (Med)
+### [Leetcode](https://leetcode.com/problems/4sum-ii/description/) 
 
+这道题是给定4个数组，要求找到4个数组里的数相加为0的元素的个数。依旧使用哈希表解决，由于此题设计数量较多，考虑使用map。  
+将四个数组两两分组，这样能减少时间复杂度，遍历前两个数组，将它们的和记为a+b，创建一个map集合，key为a+b，value为个数。  
+然后遍历剩余两个数组，记它们的和为c+d，当从map中找到0-（c+d）时，count加上value的所有值，最后返回count。
+
+## 5. hashTable 05 - 15 3Sum (Med)
+### [Leetcode](https://leetcode.com/problems/3sum/description/) 
+
+这道题给定一个数组，要求找出三个数的和为0，并且所有找出的解里面，不能有重复的解。  
+由于题目只要求返回数，并没有要求索引，可以使用 **双指针**。将数组进行排序，固定一个指针，再移动左右两个指针。  
+对于查重，解题思路是我们要保证每个相同的数只处理一次，遍历数组，nums[i]为当前的固定数，对nums[i]的去重在于如果nums[i]==nums[i-1]，即后面的数跟前面的数相等的话，就直接**continue**，因为当前的数字已经处理过了。
+令left=i+1；right=nums[length-1]，开始进行判断，如果三个数相加小于0，将left指针+1，当大于0，将right指针-1。  
+直到找到=0的值，将这三个数存入集合集，开始对left和right去重，如果nums[left+1]==nums[left]-> left++，如果nums[right]==nums[right-1]-> right--;最后再次移动指针进行新的判断。
+
+## 6. hashTable 05 - 18 4Sum (Med)
+### [Leetcode](https://leetcode.com/problems/4sum/description/) 
+
+这道题跟上面的3sum一样，但要求是4个数相加。我们可以在三个数的基础上加一个外循环。继续用双指针思路。
+要注意的是，每次的剪枝和去重操作，尤其是内层循环剪枝后，应该接break，而不是return result。  
+对于剪枝的条件，必须是第一个数大于等于0且大于target，才可以break，即当数组全部为正数且大雨target才可以进行return。这也是个易错点。
