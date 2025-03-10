@@ -10,7 +10,7 @@ public class generateMatrix {
         int startX = 0;
         int startY = 0;
         int offSet = 1;
-        int loop = 0;
+        int loop = 1;
         int count = 1;
         int i = 0, j = 0;
 
@@ -34,7 +34,7 @@ public class generateMatrix {
             loop++;
         }
         if (n % 2 == 1) {
-            array[i][j] = count;
+            array[startX][startY] = count;
         }
         return array;
     }
