@@ -12,7 +12,7 @@ public class generateMatrix {
         int offSet = 1;
         int loop = 1;
         int count = 1;
-        int i = 0, j = 0;
+        int i, j;
 
 
         while (loop <= (n / 2)) {
@@ -28,11 +28,13 @@ public class generateMatrix {
             for (; i > startX; i--) {
                 array[i][j] = count++;
             }
+            // 更新起始位置和偏移量
             startX++;
             startY++;
             offSet++;
             loop++;
         }
+        // 如果 n 是奇数，填充中心元素
         if (n % 2 == 1) {
             array[startX][startY] = count;
         }
