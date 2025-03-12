@@ -23,10 +23,17 @@
 最后再将sb转换为string返回。  
 在 Java 中，String 是不可变的（immutable），这意味着每次对字符串进行修改（如拼接、替换、反转等）时，都会创建一个新的 String 对象。这些方法在 StringBuilder 中都是原地操作（in-place），不会创建新对象。
 
-## 3. strStr 04 - 541. Find the Index of the First Occurrence in a String (Easy)
+## 4. strStr 04 - 541. Find the Index of the First Occurrence in a String (Easy)
 ### [Leetcode](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/)
 
 这道题要求在一个string中找到另一个string的起始index。使用KMP算法解决。  
-先求出子字符串的前缀表，使用固定的KMP算法。然后遍历目标string，当遍历到不同字符时，移动索引到该处前一位的next[j-1]处，重新开始比较，最后如果j=m，即子string的长度时，返回开始索引i-j+1。否则返回-1.
+先求出子字符串的前缀表next数组，也就是字符串每个位置上的最长相等前后缀，使用固定的KMP算法。然后遍历目标string，当遍历到不同字符时，移动索引到该处前一位的next[j-1]处，重新开始比较，最后如果j=m，即子string的长度时，返回开始索引i-j+1。否则返回-1.
+
+## 5. string 05 - 459. Repeated Substring Pattern (Easy)
+### [Leetcode](https://leetcode.com/problems/repeated-substring-pattern/description/)
+
+这道题要求判断一个字符串是否可以由重复字符串组成，使用KMP解决。**如果一个字符串s是由重复子串组成，那么 最长相等前后缀不包含的子串一定是字符串s的最小重复子串。**  
+因此，用求出s的next数组，也就是最长相等前后缀，然后用n-next[n-1]，n为s.length，如果可以被n整除，说明存在。注意next[n-1]必须大于0。
+
 
 
