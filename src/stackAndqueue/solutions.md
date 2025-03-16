@@ -38,3 +38,10 @@
 每次滑动窗口索引的位置应该是[i-k+1,i]，首先判断双端队列的前面元素是否还在索引范围内，不在索引范围就poll出去。  
 保持单调递减队列，每次添加元素的时候，跟队列尾端的元素比较，如果尾端元素小，就弹出队列。  
 最后判断的时候，当[i>=k-1]时，说明窗口形成，然后循环加入队列首个元素即最大值就行。
+
+## 7. Stack and Queue 07 - 347. Top K Frequent Elements
+### [Leetcode](https://leetcode.com/problems/top-k-frequent-elements/description/)
+
+这道题要求一个数组中前k个出现频率最高的元素，典型的可以用大小顶堆解决的问题。  
+首先用一个map集合将每个元素和其对应的频率存放起来。然后建立一个小顶堆，用优先队列实现，里面存放map的二元组，优先队列维护k个元素，当queue.size<k时，添加元素到queue，一旦>=k，开始进行判断，将entry.value与queue.peek()[1]做比较，entry.value>queue.peek()[1]的话就移除queue堆顶元素，也就是最小值。  
+最后用一个结果数组存储起来。
